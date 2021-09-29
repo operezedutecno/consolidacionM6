@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <title>Primera Clase de Consolidación NodeJs</title>
 </head>
+
 <body>
+    <nav class="pb-3">
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Consolidación 2 - Equipo 3</a>
+        </nav>
+    </nav>
     <section class="container">
         <h1>Listado de Posts JsonPlaceHolder Modificado</h1>
 
@@ -23,36 +32,79 @@
             </tbody>
         </table>
     </section>
-  
+
     <!-- Modal -->
     <div class="modal fade" id="modal-details" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="detail-title"></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detail-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-            </div>
-            <div class="modal-body">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 id="card-detail-title" class="card-title"></h5>
-                        <h6 id="card-detail-user" class="card-subtitle mb-2 text-muted"></h6>
-                        <p id="card-detail-content" class="card-text"></p>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 id="card-detail-title" class="card-title"></h5>
+                            <h6 id="card-detail-user" class="card-subtitle mb-2 text-muted"></h6>
+                            <p id="card-detail-content" class="card-text"></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="mail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detail-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="text-center">Envíar este post al correo</h5>
+                            <form action="" id="formulario-email">
+                                <div class="form-group">
+                                    <label>Correo</label>
+                                    <input type="email" class="form-control" name="correo" id="correo">
+                                </div>
+                                <div class="form-group">
+                                    <label>Asunto</label>
+                                    <input type="text" class="form-control" name="asunto" id="asunto">
+                                </div>
+                                <div class="form-group">
+                                    <label>Contenido del correo</label>
+                                    <textarea class="form-control" name="contenido" id="contenido" cols="30" rows="10"><h5 id="card-detail-title" class="card-title"></h5></textarea>
+                                </div>
+                            </form>
+                            <div id="mensaje-resultado" class="text-success text-center lead"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary float-left" data-dismiss="modal">Cerrar</button>
+                    <button class="btn btn-info float-right" id="enviarCorreo">Envíar</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <script scr="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script src="http://localhost:8080/script"></script>
 </body>
+
 </html>

@@ -8,8 +8,11 @@ function enviar(to,subject,text) {
             auth:{
                 user: 'prueba.node.back@gmail.com',
                 pass: 'node123123'
+            },
+            tls:{ //Permite enviar correo sin necesidad de certificado SSL en el local...
+                rejectUnauthorized: false
             }
-        }
+        },
     )
     let mailOptions = {
         from: 'prueba.node.back@gmail.com',

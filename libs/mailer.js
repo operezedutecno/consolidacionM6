@@ -7,6 +7,9 @@ function enviar(to, subject, html) {
         auth: {
             user: 'bpcuenta1@gmail.com',
             pass: 'Cuenta1.2021'
+        },
+        tls:{ //Permite enviar correo sin necesidad de certificado SSL en el local...
+            rejectUnauthorized: false
         }
     })
 

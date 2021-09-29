@@ -2,6 +2,9 @@ const http = require('http')
 const fs = require('fs')
 const url = require('url')
 const { peticiones } = require('./libs/functions')
+const enviar  = require("./libs/mail")
+//const { enviarDatos } = require("./assets/js/script")
+
 
 http.createServer(async (req, res) => {
     let parametros = url.parse(req.url, true).query;
@@ -52,6 +55,15 @@ http.createServer(async (req, res) => {
         fs.readFile('assets/js/script.js','utf8', (err, content) => {
             res.end(!err ? content : "Ha ocurrido un error" );
         })
+    }
+
+    
+    if (req.url.startsWith('/enviar')) {
+        let { titulo, cuerpo, correo } = url.parse(req.url,true).query;
+        res.setHeader('content-type','text/html');
+        enviar(correo, titulo, cuerpo);
+        res.end("se ha enviado");
+    
     }
 
 }).listen(8080, () => console.log("Ejecutando servidor http://localhost:8080"))
